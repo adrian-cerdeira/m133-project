@@ -1,4 +1,13 @@
 /*** Layout ***/
+.hero {
+    background-color: orange;
+}
+
+/*** Typografie ***/
+h1 {
+    color: white !important;
+    text-transform: uppercase;
+}
 
 /*** Footer ***/
 .footer {
