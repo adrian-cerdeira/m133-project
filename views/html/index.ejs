@@ -1,8 +1,15 @@
 <%- contentFor('main-content') %>
-<section class="section has-text-centered has-background-black">
-    <h2 class="title">Produkte</h2>
+<section class="section has-text-centered">
+    <h2 class="title has-text-black">Produkte</h2>
     <div class="container">
         <div class="columns">
+            <% for (product of products) { %>
+            <div class="column">
+                <div class="card">
+                    <img src="../img/<%= product.imageName %>" alt="Produkt-Bild">
+                </div>
+            </div>
+            <% } %>
         </div>
     </div>
 </section>
