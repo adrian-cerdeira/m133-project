@@ -1,7 +1,7 @@
 [
     {
         "id": "001",
-        "productName": "Nektarinen gelb",
+        "name": "Nektarinen gelb",
         "specialOffer": 3.6,
         "normalPrice": 5.2,
         "imageName": "nektarinen.jpg",
@@ -9,7 +9,7 @@
     },
     {
         "id": "002",
-        "productName": "Rispentomaten",
+        "name": "Rispentomaten",
         "specialOffer": 2.65,
         "normalPrice": 3.1,
         "imageName": "tomaten.jpg",
@@ -17,7 +17,7 @@
     },
     {
         "id": "003",
-        "productName": "Kalbs-Bratwürste",
+        "name": "Kalbs-Bratwürste",
         "specialOffer": 8.25,
         "normalPrice": 16.5,
         "imageName": "kalbsbratwuerste.jpg",
@@ -25,7 +25,7 @@
     },
     {
         "id": "004",
-        "productName": "Appenzeller Classic",
+        "name": "Appenzeller Classic",
         "specialOffer": 2.7,
         "normalPrice": 3.45,
         "imageName": "appenzeller.jpg",
@@ -33,7 +33,7 @@
     },
     {
         "id": "005",
-        "productName": "Eier",
+        "name": "Eier",
         "specialOffer": 4.5,
         "normalPrice": 5.4,
         "imageName": "eier.jpg",
@@ -41,7 +41,7 @@
     },
     {
         "id": "006",
-        "productName": "Krustenkranz",
+        "name": "Krustenkranz",
         "specialOffer": 2,
         "normalPrice": 2.3,
         "imageName": "krustenkranz.jpg",
@@ -49,7 +49,7 @@
     },
     {
         "id": "007",
-        "productName": "Magunm Almond",
+        "name": "Magunm Almond",
         "specialOffer": 7.9,
         "normalPrice": 9.9,
         "imageName": "vanille_glace.jpg",
@@ -57,7 +57,7 @@
     },
     {
         "id": "008",
-        "productName": "Iced Green Tea",
+        "name": "Iced Green Tea",
         "specialOffer": 7.5,
         "normalPrice": 10.8,
         "imageName": "icedtea.jpg",
@@ -65,7 +65,7 @@
     },
     {
         "id": "009",
-        "productName": "Senf",
+        "name": "Senf",
         "specialOffer": 2.7,
         "normalPrice": 3.4,
         "imageName": "senf.jpg",
@@ -73,7 +73,7 @@
     },
     {
         "id": "010",
-        "productName": "Olivenöl",
+        "name": "Olivenöl",
         "specialOffer": 14.35,
         "normalPrice": 17.95,
         "imageName": "olivenoel.jpg",

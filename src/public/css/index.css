@@ -4,11 +4,19 @@
 }
 
 /*** Typografie ***/
+.hero h1 {
+    color: white !important;
+}
+
 h1,
 h2,
 h3 {
-    color: white !important;
     text-transform: uppercase;
+}
+
+.normal-price {
+    text-decoration: line-through;
+    color: red;
 }
 
 
