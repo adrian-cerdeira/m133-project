@@ -15,9 +15,9 @@ h3 {
 }
 
 /*** Column + Card Design ***/
-.columns {
-    display: grid !important;
-    grid-template-columns: repeat(2, auto);
+.products {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
 }
 
 .normal-price {
@@ -27,7 +27,7 @@ h3 {
 
 /*** Desktop ***/
 @media (min-width: 40.0rem) {
-    .columns {
+    .products {
         grid-template-columns: repeat(4, auto);
     }
 }

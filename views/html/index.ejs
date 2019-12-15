@@ -1,7 +1,7 @@
 <%- contentFor('main-content') %>
 <section class="section has-text-centered container">
     <h2 class="title has-text-black">Produkte</h2>
-    <div class="columns">
+    <div class="products">
         <% for (product of products) { %>
         <div class="column">
             <a href="/products/<%= product.id %>">
