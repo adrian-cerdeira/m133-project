@@ -4,22 +4,24 @@
     <div class="columns">
         <% for (product of products) { %>
         <div class="column">
-            <div class="card">
-                <div class="card-image">
-                    <img src="../img/<%= product.imageName %>" alt="Produkt-Bild">
-                </div>
-                <div class="card-content">
-                    <div class="content">
-                        <p>
-                            <strong><%= product.name %></strong>
-                            <br>
-                            CHF <%= product.specialOffer %>
-                            <br>
-                            <span class="normal-price">CHF <%= product.normalPrice %></span>
-                        </p>
+            <a href="/products/<%= product.id %>">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="../img/<%= product.imageName %>" alt="Produkt-Bild">
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <p>
+                                <strong><%= product.name %></strong>
+                                <br>
+                                CHF <%= product.specialOffer %>
+                                <br>
+                                <span class="normal-price">CHF <%= product.normalPrice %></span>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         <% } %>
     </div>
