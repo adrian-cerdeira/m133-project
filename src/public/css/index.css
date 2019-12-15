@@ -4,7 +4,7 @@
 }
 
 /*** Typografie ***/
-.hero h1 {
+.hero h1 a {
     color: white !important;
 }
 
