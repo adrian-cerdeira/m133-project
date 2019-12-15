@@ -20,7 +20,9 @@ router.get('/checkout', (req, res) => {
 
 // GET: product.html - Produkt - Übersicht
 router.get('/products/:id', (req, res) => {
-    res.send('Einzel Produkt Übersicht');
+    const id = req.params.id;
+    const selectedProduct = products.find(p => p.id === id);
+    res.render('html/product', { product: selectedProduct });
 });
 
 module.exports = router;
