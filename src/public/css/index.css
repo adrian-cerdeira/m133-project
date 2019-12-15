@@ -14,16 +14,20 @@ h3 {
     text-transform: uppercase;
 }
 
+/*** Column + Card Design ***/
+.columns {
+    display: grid !important;
+    grid-template-columns: repeat(2, auto);
+}
+
 .normal-price {
     text-decoration: line-through;
     color: red;
 }
 
-
-/*** Footer ***/
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+/*** Desktop ***/
+@media (min-width: 40.0rem) {
+    .columns {
+        grid-template-columns: repeat(4, auto);
+    }
 }
