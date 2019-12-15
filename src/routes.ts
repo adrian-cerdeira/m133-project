@@ -1,11 +1,10 @@
 import * as express from 'express';
-import * as path from 'path';
 
 const router = express.Router();
 
 // GET: index.html - Übersicht
 router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/html/index.html'));
+    res.render('html/index');
 });
 
 // GET: shopping-cart.html - Warenkorb
