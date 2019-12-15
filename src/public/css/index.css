@@ -4,10 +4,12 @@
 }
 
 /*** Typografie ***/
-h1 {
+h1,
+h2 {
     color: white !important;
     text-transform: uppercase;
 }
+
 
 /*** Footer ***/
 .footer {
