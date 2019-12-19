@@ -1,10 +1,9 @@
 export class Cart {
     public cart = [];
-    private total: Number;
+    private total = 0;
 
     constructor() {
         this.cart = new Array();
-        this.total = 0;
     }
 
     public size(): Number {
@@ -13,5 +12,9 @@ export class Cart {
 
     public add(item): void {
         this.cart.push(item);
+    }
+
+    public getTotal(): number {
+        return this.total;
     }
 }
