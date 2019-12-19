@@ -15,12 +15,16 @@ h3 {
 }
 
 .button {
+    text-transform: uppercase;
+}
+
+.button-orange {
     font-weight: bold;
     background-color: white !important;
     color: orange !important;
 }
 
-.button:hover {
+.button-orange:hover {
     background-color: orange !important;
     color: white !important;
 }
