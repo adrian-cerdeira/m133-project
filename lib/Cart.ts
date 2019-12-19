@@ -23,4 +23,9 @@ export class Cart {
     public getTotal(): number {
         return this.total;
     }
+
+    public remove(id): void {
+        // Softdelete
+        this.products = this.products.filter(p => p.id !== id);
+    }
 }
