@@ -1,4 +1,19 @@
 <%- contentFor('main-content') %>
 <section class="section has-text-centered container">
-    <h2 class="title has-text-black"><%= product.name %></h2>
+    <div class="columns">
+        <div class="column">
+            <h2 class="title has-text-black"><%= product.name %></h2>
+            <p>
+                <%= product.description %>
+                <br />
+                <br />
+                <a href="" class="button">
+                    Zum Warenkorb hinzufügen
+                </a>
+            </p>
+        </div>
+        <div class="column">
+            <img src="../img/<%= product.imageName %>" alt="Produkt-Bild">
+        </div>
+    </div>
 </section>

@@ -14,6 +14,11 @@ h3 {
     text-transform: uppercase;
 }
 
+.button {
+    background-color: orange !important;
+    color: white !important;
+}
+
 /*** Column + Card Design ***/
 .products {
     display: grid;
