@@ -18,6 +18,30 @@
             </tr>
         </thead>
         <tbody>
+            <% for (product of products) { %>
+            <tr>
+                <td>
+                    <%= product.name %>
+                </td>
+                <td>
+                    <%= product.specialOffer %> CHF
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    <%= product.specialOffer %> CHF
+                </td>
+            </tr>
+            <% } %>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <%= total %> CHF
+                </td>
+            </tr>
         </tbody>
     </table>
 
