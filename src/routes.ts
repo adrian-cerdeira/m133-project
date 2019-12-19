@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 
 // GET: shopping-cart.html - Warenkorb
 router.get('/cart', (req, res) => {
-    res.send('Warenkorb');
+    res.render('html/cart');
 });
 
 // GET: checkout.html - Einkauf abschliessen
