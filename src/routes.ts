@@ -15,7 +15,7 @@ router.get('/cart', (req, res) => {
 
 // GET: checkout.html - Einkauf abschliessen
 router.get('/checkout', (req, res) => {
-    res.send('Einkauf abschliessen');
+    res.render('html/checkout');
 });
 
 // GET: product.html - Produkt - Übersicht
