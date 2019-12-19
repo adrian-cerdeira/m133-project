@@ -1,17 +1,23 @@
 export class Cart {
-    public cart = [];
+    public products = [];
     private total = 0;
 
     constructor() {
-        this.cart = new Array();
+        this.products = new Array();
     }
 
     public size(): Number {
-        return this.cart.length;
+        return this.products.length;
     }
 
-    public add(item): void {
-        this.cart.push(item);
+    public add(product): void {
+        this.products.push(product);
+    }
+
+    public calculateTotal(): void {
+        this.products.forEach(p => {
+            this.total += p.specialOffer;
+        });
     }
 
     public getTotal(): number {

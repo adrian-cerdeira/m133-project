@@ -17,6 +17,15 @@ describe("Webshop", () => {
             expect(result).to.be.equal(1);
         });
 
+        it("can calculate total", () => {
+            const cart = new Cart();
+            cart.add(productTests[0]);
+            cart.add(productTests[1]);
+            cart.calculateTotal();
+            const result = cart.getTotal();
+            expect(result).to.be.equal(6.25);
+        });
+
         it("can get total", () => {
             const cart = new Cart();
             const result = cart.getTotal();
