@@ -37,6 +37,11 @@ h3 {
     color: white !important;
 }
 
+#checkout-button {
+    margin: 1rem;
+    float: right;
+}
+
 /*** Column + Card Design ***/
 .products {
     display: grid;
