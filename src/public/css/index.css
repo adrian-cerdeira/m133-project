@@ -3,6 +3,14 @@
     background-color: orange;
 }
 
+.footer {
+    margin-top: 15rem;
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
 /*** Typografie ***/
 .hero h1 a {
     color: white !important;
