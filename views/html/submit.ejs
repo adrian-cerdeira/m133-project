@@ -4,6 +4,7 @@
     <h3 class="subtitle">
         Ihre Bestellung
     </h3>
+
     <table class="table is-fullwidth">
         <thead>
             <tr>
@@ -31,10 +32,10 @@
                     <%= product.specialOffer %> CHF
                 </td>
                 <td>
-                    1
+                    <%= product.amount %>
                 </td>
                 <td>
-                    <%= product.specialOffer %> CHF
+                    <%= product.amount * product.specialOffer %> CHF
                 </td>
             </tr>
             <% } %>
@@ -48,6 +49,7 @@
             </tr>
         </tbody>
     </table>
+
     <h3 class="subtitle">
         Danke für Ihren Einkauf
     </h3>
