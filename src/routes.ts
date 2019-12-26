@@ -25,13 +25,26 @@ router.get('/cart', (req, res) => {
     );
 });
 
-// GET: checkout.html - Einkauf abschliessen
+// GET: checkout.html - Bestellung erstellen
 router.get('/checkout', (req, res) => {
     res.render('html/checkout',
         {
             total: cart.getTotal()
         }
     );
+});
+
+// GET: checkout.html - Einkauf abschliessen
+router.get('/checkout/submit', (req, res) => {
+    res.render('html/submit',
+        {
+            products: cart.products,
+            total: cart.getTotal()
+        }
+    );
+    // Werte zurücksetzen 
+    cart.products = [];
+    cart.calculateTotal();
 });
 
 // GET: product.html - Produkt - Übersicht

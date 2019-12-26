@@ -1,0 +1,54 @@
+<%- contentFor('main-content') %>
+<section class="section container has-text-centered">
+    <h2 class="title">Einkauf abgeschlossen</h2>
+    <h3 class="subtitle">
+        Ihre Bestellung
+    </h3>
+    <table class="table is-fullwidth">
+        <thead>
+            <tr>
+                <th>
+                    <abbr>Produkt</abbr>
+                </th>
+                <th>
+                    <abbr>Einzelpreis</abbr>
+                </th>
+                <th>
+                    <abbr>Anzahl</abbr>
+                </th>
+                <th>
+                    <abbr>Total</abbr>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (product of products) { %>
+            <tr>
+                <td>
+                    <%= product.name %>
+                </td>
+                <td>
+                    <%= product.specialOffer %> CHF
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    <%= product.specialOffer %> CHF
+                </td>
+            </tr>
+            <% } %>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <%= total %> CHF
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h3 class="subtitle">
+        Danke für Ihren Einkauf
+    </h3>
+</section>
