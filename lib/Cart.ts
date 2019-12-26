@@ -26,9 +26,19 @@ export class Cart {
         return this.total;
     }
 
+    public calculateProductAmount(): void {
+        this.products.forEach(p => {
+            p.amount = this.getProductAmount(p.id);
+        });
+    }
+
     public getProductAmount(id): number {
-        const sameProducts = this.products.filter(p => p.id === id);
-        return sameProducts.length;
+        const sameProduct = this.products.filter(p => p.id === id);
+        return sameProduct.length;
+    }
+
+    public getUniqueProducts() {
+        return [...new Set(this.products)];
     }
 
     public remove(id): void {

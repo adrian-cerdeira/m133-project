@@ -18,9 +18,11 @@ router.get('/', (req, res) => {
 
 // GET: cart.html - Warenkorb
 router.get('/cart', (req, res) => {
+    cart.calculateProductAmount();
+
     res.render('html/cart',
         {
-            products: cart.products,
+            products: cart.getUniqueProducts(),
             total: cart.getTotal()
         }
     );
@@ -53,11 +55,12 @@ router.get('/cart/products/:id', (req, res) => {
     const selectedProduct = products.find(p => p.id === id);
 
     cart.add(selectedProduct);
+    cart.calculateProductAmount();
     cart.calculateTotal();
 
     res.render('html/cart',
         {
-            products: cart.products,
+            products: cart.getUniqueProducts(),
             total: cart.getTotal()
         }
     );
@@ -84,7 +87,7 @@ router.post('/checkout',
         } else {
             res.render('html/submit',
                 {
-                    products: cart.products,
+                    products: cart.getUniqueProducts(),
                     total: cart.getTotal()
                 }
             );
@@ -93,6 +96,7 @@ router.post('/checkout',
             cart.products = [];
             cart.calculateTotal();
         }
-    });
+    }
+);
 
 module.exports = router;

@@ -27,10 +27,10 @@
                     <%= product.specialOffer %> CHF
                 </td>
                 <td>
-                    1
+                    <%= product.amount %>
                 </td>
                 <td>
-                    <%= product.specialOffer %> CHF
+                    <%= product.amount * product.specialOffer %> CHF
                 </td>
             </tr>
             <% } %>

@@ -41,12 +41,30 @@ describe("Webshop", () => {
             expect(result).to.be.equal(0);
         });
 
+        it("can calculate product amount", () => {
+            const cart = new Cart();
+            cart.add(productTests[0]);
+            cart.add(productTests[0]);
+            cart.calculateProductAmount();
+            const result = cart.getProductAmount(productTests[0].id);
+            expect(result).to.be.equal(2);
+        });
+
         it("can get product amout", () => {
             const cart = new Cart();
             cart.add((productTests[1]));
             cart.add((productTests[1]));
             const result = cart.getProductAmount(productTests[1].id);
             expect(result).to.be.equal(2);
+        });
+
+        it("can get unique products", () => {
+            const cart = new Cart();
+            cart.add((productTests[1]));
+            cart.add((productTests[1]));
+            cart.add((productTests[1]));
+            const result = cart.getUniqueProducts().length;
+            expect(result).to.be.equal(1);
         });
     })
 });
