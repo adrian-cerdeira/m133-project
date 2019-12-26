@@ -26,6 +26,11 @@ export class Cart {
         return this.total;
     }
 
+    public getProductAmount(id): number {
+        const sameProducts = this.products.filter(p => p.id === id);
+        return sameProducts.length;
+    }
+
     public remove(id): void {
         // Softdelete
         this.products = this.products.filter(p => p.id !== id);

@@ -40,5 +40,13 @@ describe("Webshop", () => {
             const result = cart.getTotal();
             expect(result).to.be.equal(0);
         });
+
+        it("can get product amout", () => {
+            const cart = new Cart();
+            cart.add((productTests[1]));
+            cart.add((productTests[1]));
+            const result = cart.getProductAmount(productTests[1].id);
+            expect(result).to.be.equal(2);
+        });
     })
 });
