@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
     );
 });
 
-// GET: shopping-cart.html - Warenkorb
+// GET: cart.html - Warenkorb
 router.get('/cart', (req, res) => {
     res.render('html/cart',
         {
