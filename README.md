@@ -8,6 +8,7 @@ Abschlussprojekt des Moduls 133
 - [Mocha für Testing](https://github.com/mochajs/mocha) mit [chai](https://github.com/chaijs/chai)
 - [Templates mit ejs](https://github.com/mde/ejs) inkl. mit [Layout express-ejs-layouts](https://github.com/Soarez/express-ejs-layouts#readme)
 - [Typescript als Grundsprache](https://github.com/microsoft/TypeScript)
+- [Backend-Validierung mit express-validator](https://github.com/express-validator/express-validator)
 
 ## Setup
 
