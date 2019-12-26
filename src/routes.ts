@@ -27,17 +27,15 @@ router.get('/products/:id', (req, res) => {
     res.render('html/product', { product: selectedProduct });
 });
 
-// POST: Produkt zu cart hinzufügen
-/*router.post('/products/:id', (req, res) => {
+// GET: Produkt zu cart hinzufügen
+router.get('/cart/products/:id', (req, res) => {
     const id = req.params.id;
     const selectedProduct = products.find(p => p.id === id);
 
     cart.add(selectedProduct);
     cart.calculateTotal();
 
-    const total = cart.getTotal();
-
-    res.render('html/cart', { products: cart.products, total: total })
-});*/
+    res.render('html/cart', { products: cart.products, total: cart.getTotal() })
+});
 
 module.exports = router;

@@ -15,9 +15,11 @@ export class Cart {
     }
 
     public calculateTotal(): void {
+        let sum = 0;
         this.products.forEach(p => {
-            this.total += p.specialOffer;
+            sum += p.specialOffer;
         });
+        this.total = Number(sum.toFixed(2));
     }
 
     public getTotal(): number {
