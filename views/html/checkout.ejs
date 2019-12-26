@@ -2,26 +2,26 @@
 <section class="section container">
     <h2 class="title has-text-black">Bestellung</h2>
 
-    <form class="form" action="/checkout/submit">
+    <form class="form" action="/checkout/" method="POST">
 
         <div class="field">
             <label class="label">Vorname</label>
             <div class="control">
-                <input class="input" type="text" placeholder="Vorname eingeben" required>
+                <input class="input" type="text" name="firstname" placeholder="Vorname eingeben" required>
             </div>
         </div>
 
         <div class="field">
             <label class="label">Nachname</label>
             <div class="control">
-                <input class="input" type="text" placeholder="Nachname eingeben" required>
+                <input class="input" type="text" name="lastname" placeholder="Nachname eingeben" required>
             </div>
         </div>
 
         <div class="field">
             <label class="label">Email</label>
             <div class="control">
-                <input class="input" type="email" placeholder="Email eingeben" required>
+                <input class="input" type="email" name="email" placeholder="Email eingeben" required>
             </div>
         </div>
 

@@ -5,6 +5,7 @@ import * as router from './routes';
 const app = express();
 const port = 8080;
 
+app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
 app.use('/', router);

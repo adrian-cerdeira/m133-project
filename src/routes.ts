@@ -1,6 +1,7 @@
 import * as express from 'express';
 import * as products from './products.json';
 import { Cart } from '../lib/Cart';
+import { check, validationResult } from 'express-validator';
 
 const router = express.Router();
 const cart = new Cart();
@@ -34,19 +35,6 @@ router.get('/checkout', (req, res) => {
     );
 });
 
-// GET: checkout.html - Einkauf abschliessen
-router.get('/checkout/submit', (req, res) => {
-    res.render('html/submit',
-        {
-            products: cart.products,
-            total: cart.getTotal()
-        }
-    );
-    // Werte zurücksetzen 
-    cart.products = [];
-    cart.calculateTotal();
-});
-
 // GET: product.html - Produkt - Übersicht
 router.get('/products/:id', (req, res) => {
     const id = req.params.id;
@@ -74,5 +62,37 @@ router.get('/cart/products/:id', (req, res) => {
         }
     );
 });
+
+// POST: checkout.html - Einkauf abschliessen
+router.post('/checkout',
+    [
+        check('firstname').notEmpty(),
+        check('lastname').notEmpty(),
+        check('email').notEmpty().isEmail()
+    ],
+    (req, res) => {
+        const errors = validationResult(req);
+        const formInvalid = !errors.isEmpty() || cart.getTotal() === 0;
+
+        if (formInvalid) {
+            res.status(422);
+            res.render('html/error',
+                {
+                    total: cart.getTotal()
+                }
+            );
+        } else {
+            res.render('html/submit',
+                {
+                    products: cart.products,
+                    total: cart.getTotal()
+                }
+            );
+
+            // Werte zurücksetzen 
+            cart.products = [];
+            cart.calculateTotal();
+        }
+    });
 
 module.exports = router;
