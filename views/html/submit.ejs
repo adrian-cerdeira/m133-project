@@ -11,13 +11,13 @@
                 <th>
                     <abbr>Produkt</abbr>
                 </th>
-                <th>
+                <th class="right-aligned">
                     <abbr>Einzelpreis</abbr>
                 </th>
-                <th>
+                <th class="right-aligned">
                     <abbr>Anzahl</abbr>
                 </th>
-                <th>
+                <th class="right-aligned">
                     <abbr>Total</abbr>
                 </th>
             </tr>
@@ -28,13 +28,13 @@
                 <td>
                     <%= product.name %>
                 </td>
-                <td>
+                <td class="right-aligned">
                     <%= product.specialOffer %> CHF
                 </td>
-                <td>
+                <td class="right-aligned">
                     <%= product.amount %>
                 </td>
-                <td>
+                <td class="right-aligned">
                     <%= product.amount * product.specialOffer %> CHF
                 </td>
             </tr>
@@ -43,7 +43,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>
+                <td class="right-aligned">
                     <%= total %> CHF
                 </td>
             </tr>
