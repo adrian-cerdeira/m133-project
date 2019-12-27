@@ -30,7 +30,7 @@
                     <%= product.amount %>
                 </td>
                 <td class="right-aligned">
-                    <%= product.amount * product.specialOffer %> CHF
+                    <%= Number.parseFloat(product.amount * product.specialOffer).toFixed(2) %> CHF
                 </td>
             </tr>
             <% } %>
@@ -39,7 +39,7 @@
                 <td></td>
                 <td></td>
                 <td class="right-aligned">
-                    <%= total %> CHF
+                    <%= Number.parseFloat(total).toFixed(2) %> CHF
                 </td>
             </tr>
         </tbody>
