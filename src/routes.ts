@@ -66,6 +66,23 @@ router.get('/cart/products/:id', (req, res) => {
     );
 });
 
+// GET: cart.html - Produkt von cart löschen
+router.get('/cart/products/delete/:id', (req, res) => {
+    const id = req.params.id;
+    const selectedProduct = products.find(p => p.id === id);
+
+    cart.remove(selectedProduct.id);
+    cart.calculateProductAmount();
+    cart.calculateTotal();
+
+    res.render('html/cart',
+        {
+            products: cart.getUniqueProducts(),
+            total: cart.getTotal()
+        }
+    );
+});
+
 // POST: checkout.html - Einkauf abschliessen
 router.post('/checkout',
     [

@@ -42,7 +42,7 @@ export class Cart {
     }
 
     public remove(id): void {
-        // Softdelete
-        this.products = this.products.filter(p => p.id !== id);
+        const productIndex = this.products.findIndex(p => p.id === id);
+        this.products.splice(productIndex, 1);
     }
 }
