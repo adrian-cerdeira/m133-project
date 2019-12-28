@@ -50,7 +50,7 @@ router.get('/products/:id', (req, res) => {
 });
 
 // GET: cart.html - Produkt zu cart hinzufügen
-router.get('/cart/products/:id', (req, res) => {
+router.get('/cart/products/add/:id', (req, res) => {
     const id = req.params.id;
     const selectedProduct = products.find(p => p.id === id);
 
