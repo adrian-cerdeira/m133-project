@@ -22,6 +22,11 @@ h3 {
     padding: 5rem 1.5rem !important;
 }
 
+.table.is-fullwidth td,
+.table.is-fullwidth th {
+    font-size: 0.8rem;
+}
+
 /*** Buttons ***/
 
 .button {
@@ -59,5 +64,10 @@ h3 {
 @media (min-width: 40.0rem) {
     .products {
         grid-template-columns: repeat(4, auto);
+    }
+
+    .table.is-fullwidth td,
+    .table.is-fullwidth th {
+        font-size: 1rem;
     }
 }
