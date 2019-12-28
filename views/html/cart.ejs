@@ -24,7 +24,7 @@
                     <%= product.name %>
                 </td>
                 <td class="right-aligned">
-                    <%= product.specialOffer %> CHF
+                    <%= Number.parseFloat(product.specialOffer).toFixed(2) %> CHF
                 </td>
                 <td class="right-aligned">
                     <a href="/cart/products/add/<%= product.id %>" class="button button-orange is-white">+</a>
