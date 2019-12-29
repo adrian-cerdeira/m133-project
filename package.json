@@ -18,6 +18,7 @@
         "@types/node": "^12.12.17",
         "chai": "4.2.0",
         "express": "^4.17.1",
+        "express-session": "^1.17.0",
         "express-validator": "^6.3.0",
         "mocha": "6.2.0",
         "nodemon": "^2.0.2",

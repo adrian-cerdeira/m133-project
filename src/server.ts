@@ -1,10 +1,22 @@
 import * as express from 'express';
 import * as expressLayouts from 'express-ejs-layouts';
 import * as router from './routes';
+import * as session from 'express-session';
 
 const app = express();
 const port = 8080;
 
+app.set('trusty proxy', 1);
+app.use(
+    session(
+        {
+            secret: 'keyboard cat',
+            resave: false,
+            saveUninitialized: true,
+            cookie: { secure: true }
+        }
+    )
+);
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
