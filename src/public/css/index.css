@@ -27,6 +27,11 @@ h3 {
     font-size: 0.8rem;
 }
 
+tbody .button {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
 /*** Buttons ***/
 
 .button {
