@@ -2,6 +2,7 @@ import * as express from 'express';
 import * as expressLayouts from 'express-ejs-layouts';
 import * as router from './routes';
 import * as session from 'express-session';
+import { Cart } from '../lib/Cart';
 
 const app = express();
 const port = 8080;
@@ -13,7 +14,10 @@ app.use(
             secret: 'keyboard cat',
             resave: false,
             saveUninitialized: true,
-            cookie: { secure: true }
+            cookie: { 
+                secure: true,
+                cart: new Cart() 
+            }
         }
     )
 );

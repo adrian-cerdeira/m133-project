@@ -1,29 +1,27 @@
 import * as express from 'express';
 import * as products from './products.json';
-import { Cart } from '../lib/Cart';
 import { check, validationResult } from 'express-validator';
 
 const router = express.Router();
-const cart = new Cart();
 
 // GET: index.html - Übersicht
 router.get('/', (req, res) => {
     res.render('html/index',
         {
             products: products,
-            total: cart.getTotal()
+            total: req.session.cookie.cart.getTotal()
         }
     );
 });
 
 // GET: cart.html - Warenkorb
 router.get('/cart', (req, res) => {
-    cart.calculateProductAmount();
+    req.session.cookie.cart.calculateProductAmount();
 
     res.render('html/cart',
         {
-            products: cart.getUniqueProducts(),
-            total: cart.getTotal()
+            products: req.session.cookie.cart.getUniqueProducts(),
+            total: req.session.cookie.cart.getTotal()
         }
     );
 });
@@ -32,7 +30,7 @@ router.get('/cart', (req, res) => {
 router.get('/checkout', (req, res) => {
     res.render('html/checkout',
         {
-            total: cart.getTotal()
+            total: req.session.cookie.cart.getTotal()
         }
     );
 });
@@ -44,7 +42,7 @@ router.get('/products/:id', (req, res) => {
     res.render('html/product',
         {
             product: selectedProduct,
-            total: cart.getTotal()
+            total: req.session.cookie.cart.getTotal()
         }
     );
 });
@@ -54,14 +52,14 @@ router.get('/cart/products/add/:id', (req, res) => {
     const id = req.params.id;
     const selectedProduct = products.find(p => p.id === id);
 
-    cart.add(selectedProduct);
-    cart.calculateProductAmount();
-    cart.calculateTotal();
+    req.session.cookie.cart.add(selectedProduct);
+    req.session.cookie.cart.calculateProductAmount();
+    req.session.cookie.cart.calculateTotal();
 
     res.render('html/cart',
         {
-            products: cart.getUniqueProducts(),
-            total: cart.getTotal()
+            products: req.session.cookie.cart.getUniqueProducts(),
+            total: req.session.cookie.cart.getTotal()
         }
     );
 });
@@ -71,14 +69,14 @@ router.get('/cart/products/delete/:id', (req, res) => {
     const id = req.params.id;
     const selectedProduct = products.find(p => p.id === id);
 
-    cart.remove(selectedProduct.id);
-    cart.calculateProductAmount();
-    cart.calculateTotal();
+    req.session.cookie.cart.remove(selectedProduct.id);
+    req.session.cookie.cart.calculateProductAmount();
+    req.session.cookie.cart.calculateTotal();
 
     res.render('html/cart',
         {
-            products: cart.getUniqueProducts(),
-            total: cart.getTotal()
+            products: req.session.cookie.cart.getUniqueProducts(),
+            total: req.session.cookie.cart.getTotal()
         }
     );
 });
@@ -92,26 +90,26 @@ router.post('/checkout',
     ],
     (req, res) => {
         const errors = validationResult(req);
-        const formInvalid = !errors.isEmpty() || cart.getTotal() === 0;
+        const formInvalid = !errors.isEmpty() || req.session.cookie.cart.getTotal() === 0;
 
         if (formInvalid) {
             res.status(422);
             res.render('html/error',
                 {
-                    total: cart.getTotal()
+                    total: req.session.cookie.cart.getTotal()
                 }
             );
         } else {
             res.render('html/submit',
                 {
-                    products: cart.getUniqueProducts(),
-                    total: cart.getTotal()
+                    products: req.session.cookie.cart.getUniqueProducts(),
+                    total: req.session.cookie.cart.getTotal()
                 }
             );
 
             // Werte zurücksetzen 
-            cart.products = [];
-            cart.calculateTotal();
+            req.session.cookie.cart.products = [];
+            req.session.cookie.cart.calculateTotal();
         }
     }
 );
