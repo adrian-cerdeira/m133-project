@@ -72,7 +72,8 @@ tbody .button {
     }
 
     .products .card-image {
-        height: 20.5rem;
+        display: flex;
+        height: 15rem;
     }
 
     .table.is-fullwidth td,
