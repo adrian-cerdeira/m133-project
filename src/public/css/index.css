@@ -14,6 +14,11 @@ h3 {
     text-transform: uppercase;
 }
 
+.alert {
+    display: none;
+    color: red;
+}
+
 .right-aligned {
     text-align: right !important;
 }

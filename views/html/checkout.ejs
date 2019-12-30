@@ -9,6 +9,7 @@
             <div class="control">
                 <input class="input" type="text" name="firstname" placeholder="Vorname eingeben" required>
             </div>
+            <p id="firstname-alert" class="alert">Bitte Vorname eingeben</p>
         </div>
 
         <div class="field">
@@ -16,13 +17,17 @@
             <div class="control">
                 <input class="input" type="text" name="lastname" placeholder="Nachname eingeben" required>
             </div>
+            <p id="lastname-alert" class="alert">Bitte Nachname eingeben</p>
         </div>
 
         <div class="field">
-            <label class="label">Email</label>
+            <label class="label">
+                <i class="icon-mail-alt"></i>Email
+            </label>
             <div class="control">
                 <input class="input" type="email" name="email" placeholder="Email eingeben" required>
             </div>
+            <p id="email-alert" class="alert">Bitte gültige Email eingeben</p>
         </div>
 
         <div class="field is-grouped">
@@ -35,3 +40,30 @@
     </form>
 
 </section>
+
+<script>
+    const formInputs = document.querySelectorAll('input');
+
+    formInputs.forEach(formInput => {
+        formInput.addEventListener('input', (e) => {
+            const isInputValid = formInput.checkValidity() === true;
+            const inputName = formInput.name;
+
+            if (isInputValid) {
+                hiddenAlert(inputName);
+            } else {
+                showAlert(inputName);
+            }
+        });
+    });
+
+    function showAlert(name) {
+        const id = `${name}-alert`;
+        document.getElementById(id).style.display = 'block';
+    }
+
+    function hiddenAlert(name) {
+        const id = `${name}-alert`;
+        document.getElementById(id).style.display = 'none';
+    }
+</script>
