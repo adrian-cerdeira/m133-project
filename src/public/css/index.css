@@ -71,6 +71,10 @@ tbody .button {
         grid-template-columns: repeat(4, auto);
     }
 
+    .products .card-image {
+        height: 20.5rem;
+    }
+
     .table.is-fullwidth td,
     .table.is-fullwidth th {
         font-size: 1rem;
