@@ -9,7 +9,7 @@ Abschlussprojekt des Moduls 133
 - [Templates mit ejs](https://github.com/mde/ejs) inkl. mit [Layout express-ejs-layouts](https://github.com/Soarez/express-ejs-layouts#readme)
 - [Typescript als Grundsprache](https://github.com/microsoft/TypeScript)
 - [Backend-Validierung mit express-validator](https://github.com/express-validator/express-validator)
-- [Session-Erstellung mit express-session](https://github.com/expressjs/session)
+- [Session mit express-session](https://github.com/expressjs/session)
 
 ## Setup
 
