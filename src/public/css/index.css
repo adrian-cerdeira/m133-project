@@ -65,19 +65,31 @@ tbody .button {
     color: red;
 }
 
-/*** Desktop ***/
+
+/*** Tablet ***/
 @media (min-width: 40.0rem) {
     .products {
-        grid-template-columns: repeat(4, auto);
+        grid-template-columns: repeat(3, auto);
     }
 
     .products .card-image {
         display: flex;
-        height: 15rem;
+        height: 10rem;
     }
 
     .table.is-fullwidth td,
     .table.is-fullwidth th {
         font-size: 1rem;
+    }
+}
+
+/*** Desktop ***/
+@media (min-width: 80.0rem) {
+    .products {
+        grid-template-columns: repeat(4, auto);
+    }
+
+    .products .card-image {
+        height: 15rem;
     }
 }
