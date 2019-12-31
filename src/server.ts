@@ -7,6 +7,7 @@ import { Cart } from '../lib/Cart';
 const app = express();
 const port = 8080;
 
+// Create Session
 app.set('trusty proxy', 1);
 app.use(
     session(
@@ -14,19 +15,27 @@ app.use(
             secret: 'keyboard cat',
             resave: false,
             saveUninitialized: true,
-            cookie: { 
+            cookie: {
                 secure: true,
-                cart: new Cart() 
+                cart: new Cart()
             }
         }
     )
 );
+
+// Body-Parser in Express included
 app.use(express.urlencoded({ extended: true }));
+
+// Template Setzung mit EJS
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
+
+// Router setzen
 app.use('/', router);
+
+// Public CSS etc. setzen
 app.use(express.static(__dirname + '/public'));
 
 app.listen(port, function () {
-    console.log('server is running on port 8080');
+    console.log(`server is running on port ${port}`);
 });

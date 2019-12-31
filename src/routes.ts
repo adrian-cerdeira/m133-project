@@ -26,7 +26,7 @@ router.get('/cart', (req, res) => {
     );
 });
 
-// GET: checkout.html - Bestellung erstellen
+// GET: checkout.html - Einkauf abschliessen
 router.get('/checkout', (req, res) => {
     res.render('html/checkout',
         {
@@ -47,7 +47,7 @@ router.get('/products/:id', (req, res) => {
     );
 });
 
-// GET: cart.html - Produkt zu cart hinzufügen
+// GET: cart.html - Produkt zu Warenkorb hinzufügen
 router.get('/cart/products/add/:id', (req, res) => {
     const id = req.params.id;
     const selectedProduct = products.find(p => p.id === id);
@@ -64,7 +64,7 @@ router.get('/cart/products/add/:id', (req, res) => {
     );
 });
 
-// GET: cart.html - Produkt von cart löschen
+// GET: cart.html - Produkt von Warenkorb löschen
 router.get('/cart/products/delete/:id', (req, res) => {
     const id = req.params.id;
     const selectedProduct = products.find(p => p.id === id);
