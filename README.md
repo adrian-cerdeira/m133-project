@@ -20,3 +20,7 @@ Abschlussprojekt des Moduls 133
 ## Start
 
     npm start;
+
+## Test
+
+    npm test;
