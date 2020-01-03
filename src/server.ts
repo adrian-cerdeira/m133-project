@@ -36,6 +36,6 @@ app.use('/', router);
 // Public CSS etc. statisch Ordner festlegen
 app.use(express.static(__dirname + '/public'));
 
-app.listen(port, function () {
+app.listen(port, () => {
     console.log(`server is running on port ${port}`);
 });
