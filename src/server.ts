@@ -33,7 +33,7 @@ app.use(expressLayouts);
 // Router setzen
 app.use('/', router);
 
-// Public CSS etc. setzen
+// Public CSS etc. statisch Ordner festlegen
 app.use(express.static(__dirname + '/public'));
 
 app.listen(port, function () {
