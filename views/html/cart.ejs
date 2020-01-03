@@ -21,7 +21,9 @@
             <% for (product of products) { %>
             <tr>
                 <td>
-                    <%= product.name %>
+                    <a href="/products/<%= product.id %>">
+                        <%= product.name %>
+                    </a>
                 </td>
                 <td class="right-aligned">
                     <%= Number.parseFloat(product.specialOffer).toFixed(2) %> CHF
