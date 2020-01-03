@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { Cart } from '../lib/Cart';
-import * as productTests from '../src/products.json';
+import * as prodcuts from '../src/products.json';
 
 describe("Webshop", () => {
     describe("Cart", () => {
@@ -12,24 +12,24 @@ describe("Webshop", () => {
 
         it("can add item", () => {
             const cart = new Cart();
-            cart.add(productTests[0]);
+            cart.add(prodcuts[0]);
             const result = cart.size();
             expect(result).to.be.equal(1);
         });
 
         it("can remove item", () => {
             const cart = new Cart();
-            cart.add(productTests[0]);
-            cart.add(productTests[1]);
-            cart.remove(productTests[1].id);
+            cart.add(prodcuts[0]);
+            cart.add(prodcuts[1]);
+            cart.remove(prodcuts[1].id);
             const result = cart.size();
             expect(result).to.be.equal(1);
         });
 
         it("can calculate total", () => {
             const cart = new Cart();
-            cart.add(productTests[0]);
-            cart.add(productTests[1]);
+            cart.add(prodcuts[0]);
+            cart.add(prodcuts[1]);
             cart.calculateTotal();
             const result = cart.getTotal();
             expect(result).to.be.equal(6.25);
@@ -43,26 +43,26 @@ describe("Webshop", () => {
 
         it("can calculate product amount", () => {
             const cart = new Cart();
-            cart.add(productTests[0]);
-            cart.add(productTests[0]);
+            cart.add(prodcuts[0]);
+            cart.add(prodcuts[0]);
             cart.calculateProductAmount();
-            const result = cart.getProductAmount(productTests[0].id);
+            const result = cart.getProductAmount(prodcuts[0].id);
             expect(result).to.be.equal(2);
         });
 
         it("can get product amout", () => {
             const cart = new Cart();
-            cart.add((productTests[1]));
-            cart.add((productTests[1]));
-            const result = cart.getProductAmount(productTests[1].id);
+            cart.add((prodcuts[1]));
+            cart.add((prodcuts[1]));
+            const result = cart.getProductAmount(prodcuts[1].id);
             expect(result).to.be.equal(2);
         });
 
         it("can get unique products", () => {
             const cart = new Cart();
-            cart.add((productTests[1]));
-            cart.add((productTests[1]));
-            cart.add((productTests[1]));
+            cart.add((prodcuts[1]));
+            cart.add((prodcuts[1]));
+            cart.add((prodcuts[1]));
             const result = cart.getUniqueProducts().length;
             expect(result).to.be.equal(1);
         });
