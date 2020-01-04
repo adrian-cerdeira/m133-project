@@ -1,16 +1,18 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg">
-<metadata>Copyright (C) 2019 by original authors @ fontello.com</metadata>
+<metadata>Copyright (C) 2020 by original authors @ fontello.com</metadata>
 <defs>
 <font id="fontello" horiz-adv-x="1000" >
 <font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
 <missing-glyph horiz-adv-x="1000" />
-<glyph glyph-name="basket" unicode="&#xe800;" d="M357-7q0-29-21-50t-50-22-50 22-22 50 22 50 50 21 50-21 21-50z m500 0q0-29-21-50t-50-22-50 22-22 50 22 50 50 21 50-21 21-50z m72 607v-286q0-13-10-23t-22-12l-583-68q7-34 7-40 0-8-13-35h513q15 0 26-11t10-25-10-25-26-11h-571q-14 0-25 11t-11 25q0 6 5 18t9 20 12 22 8 17l-98 459h-114q-15 0-25 10t-11 25 11 26 25 10h143q9 0 16-3t10-9 8-14 4-14 3-17 3-14h670q14 0 25-11t11-25z" horiz-adv-x="928.6" />
+<glyph glyph-name="basket" unicode="&#xe800;" d="M150 0q0 40 30 70t70 30q42 0 71-30t29-70q0-42-29-71t-71-29q-40 0-70 29t-30 71z m500 0q0 40 30 70t70 30q42 0 71-30t29-70q0-42-29-71t-71-29q-40 0-70 29t-30 71z m-322 236q-36-10-34-23t44-13l562 0 0-76q0-20-20-20l-654 0q-20 0-20 20l0 76-10 46-98 454-98 0 0 80q0 20 20 20l156 0q20 0 20-20l0-86 704 0 0-274q0-22-18-26z" horiz-adv-x="900" />
+
+<glyph glyph-name="left" unicode="&#xe801;" d="M464-97l-446 448 446 446 159-158-177-177 465 0 0-223-465 0 177-176z" horiz-adv-x="928" />
+
+<glyph glyph-name="right" unicode="&#xe802;" d="M464 797l447-446-447-448-157 160 175 176-464 0 0 224 464 0-175 176z" horiz-adv-x="928" />
 
 <glyph glyph-name="mail-alt" unicode="&#xf0e0;" d="M1000 454v-443q0-37-26-63t-63-27h-822q-36 0-63 27t-26 63v443q25-27 56-49 202-137 278-192 32-24 51-37t53-27 61-13h2q28 0 61 13t53 27 51 37q95 68 278 192 32 22 56 49z m0 164q0-44-27-84t-68-69q-210-146-262-181-5-4-23-17t-30-22-29-18-32-15-28-5h-2q-12 0-27 5t-32 15-30 18-30 22-23 17q-51 35-147 101t-114 80q-35 23-65 64t-31 77q0 43 23 72t66 29h822q36 0 63-26t26-63z" horiz-adv-x="1000" />
-
-<glyph glyph-name="shopping-basket" unicode="&#xf291;" d="M1071 421q30 0 51-20t21-51-21-50-51-21h-8l-64-370q-5-26-25-42t-45-17h-715q-25 0-45 17t-25 42l-64 370h-9q-29 0-50 21t-21 50 21 51 50 20h1000z m-800-446q14 1 24 13t9 26l-18 232q-1 14-13 24t-26 9-24-13-9-26l18-232q1-14 12-24t24-9h3z m229 36v232q0 14-11 25t-25 11-25-11-10-25v-232q0-15 10-25t25-11 25 11 11 25z m214 0v232q0 14-10 25t-25 11-25-11-11-25v-232q0-15 11-25t25-11 25 11 10 25z m197-3l18 232q1 15-9 26t-24 13-26-9-13-24l-18-232q-1-15 9-26t24-13h3q14 0 24 9t12 24z m-645 679l-52-230h-74l56 246q11 49 50 80t89 31h94q0 15 10 25t25 11h215q14 0 25-11t10-25h94q50 0 89-31t49-80l57-246h-74l-52 230q-6 25-25 40t-44 16h-94q0-15-10-25t-25-11h-215q-14 0-25 11t-10 25h-94q-25 0-44-16t-25-40z" horiz-adv-x="1142.9" />
 </font>
 </defs>
 </svg>

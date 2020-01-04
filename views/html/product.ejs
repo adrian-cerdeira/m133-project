@@ -26,12 +26,12 @@
     <% } %>
     <%if (previousProduct) { %>
     <a href="/products/<%= previousProduct.id %>" class="pagination-previous button-orange">
-        <%= previousProduct.name %>
+        <i class="icon-left"></i> <%= previousProduct.name %>
     </a>
     <% } %>
     <%if (nextProduct) { %>
     <a href="/products/<%= nextProduct.id %>" class="pagination-next button-orange">
-        <%= nextProduct.name %>
+        <%= nextProduct.name %> <i class="icon-right"></i>
     </a>
     <% } %>
 </nav>
