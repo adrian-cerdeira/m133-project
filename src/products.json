@@ -1,6 +1,6 @@
 [
     {
-        "id": "001",
+        "id": 1,
         "name": "Nektarinen gelb",
         "specialOffer": 3.6,
         "normalPrice": 5.2,
@@ -8,7 +8,7 @@
         "description": "Herkunft: Spanien"
     },
     {
-        "id": "002",
+        "id": 2,
         "name": "Rispentomaten",
         "specialOffer": 2.65,
         "normalPrice": 3.1,
@@ -16,7 +16,7 @@
         "description": "Tomaten verfügen über einen hohen Gehalt an Vitamin C sowie Zucker und Mineralstoffen."
     },
     {
-        "id": "003",
+        "id": 3,
         "name": "Kalbs-Bratwürste",
         "specialOffer": 8.25,
         "normalPrice": 16.5,
@@ -24,7 +24,7 @@
         "description": "Terra Suisse Kalbs-Bratwurst 3x2 Stück"
     },
     {
-        "id": "004",
+        "id": 4,
         "name": "Appenzeller Classic",
         "specialOffer": 2.7,
         "normalPrice": 3.45,
@@ -32,7 +32,7 @@
         "description": "Schweizer Halbhartkäse und  vollfett. aus Rohmilch"
     },
     {
-        "id": "005",
+        "id": 5,
         "name": "Eier",
         "specialOffer": 4.5,
         "normalPrice": 5.4,
@@ -40,7 +40,7 @@
         "description": "9 Schweizer Eier aus Frilandhaltung"
     },
     {
-        "id": "006",
+        "id": 6,
         "name": "Krustenkranz",
         "specialOffer": 2,
         "normalPrice": 2.3,
@@ -48,7 +48,7 @@
         "description": "Terra Suisse"
     },
     {
-        "id": "007",
+        "id": 7,
         "name": "Magunm Almond",
         "specialOffer": 7.9,
         "normalPrice": 9.9,
@@ -56,7 +56,7 @@
         "description": "Vanilleglace und Milchschokolade mit Mandeln"
     },
     {
-        "id": "008",
+        "id": 8,
         "name": "Iced Green Tea",
         "specialOffer": 7.5,
         "normalPrice": 10.8,
@@ -64,7 +64,7 @@
         "description": "AriZona Green Tea - Grünteegrtränk"
     },
     {
-        "id": "009",
+        "id": 9,
         "name": "Senf",
         "specialOffer": 2.7,
         "normalPrice": 3.4,
@@ -72,7 +72,7 @@
         "description": "Senf mild"
     },
     {
-        "id": "010",
+        "id": 10,
         "name": "Olivenöl",
         "specialOffer": 14.35,
         "normalPrice": 17.95,

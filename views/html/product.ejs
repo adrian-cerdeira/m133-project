@@ -17,3 +17,21 @@
         </div>
     </div>
 </section>
+
+<nav class="pagination is-rounded">
+    <%if (!previousProduct) { %>
+    <a href="/" class="pagination-previous button-orange">
+        Zurück zur Übersicht
+    </a>
+    <% } %>
+    <%if (previousProduct) { %>
+    <a href="/products/<%= previousProduct.id %>" class="pagination-previous button-orange">
+        <%= previousProduct.name %>
+    </a>
+    <% } %>
+    <%if (nextProduct) { %>
+    <a href="/products/<%= nextProduct.id %>" class="pagination-next button-orange">
+        <%= nextProduct.name %>
+    </a>
+    <% } %>
+</nav>
