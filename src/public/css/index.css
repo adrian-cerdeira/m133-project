@@ -62,7 +62,7 @@ tbody .button {
     color: white !important;
 }
 
-#checkout-button {
+.right-button {
     margin: 1rem;
     float: right;
 }
