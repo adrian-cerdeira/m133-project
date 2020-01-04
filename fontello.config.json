@@ -29,6 +29,12 @@
       "css": "right",
       "code": 59394,
       "src": "iconic"
+    },
+    {
+      "uid": "90e0aff5c929e444038355746a952aaf",
+      "css": "shopping-basket",
+      "code": 62097,
+      "src": "fontawesome"
     }
   ]
 }
