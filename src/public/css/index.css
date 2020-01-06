@@ -55,6 +55,12 @@ tbody .button {
     text-transform: uppercase;
 }
 
+.button-actions {
+    border: 0.1rem solid orange;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+}
+
 .button-orange {
     font-weight: bold;
     background-color: white !important;
