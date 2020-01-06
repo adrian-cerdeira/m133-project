@@ -19,10 +19,6 @@ h3 {
     color: red;
 }
 
-.right-aligned {
-    text-align: right !important;
-}
-
 .right-button {
     margin-top: 1rem !important;
 }
@@ -54,11 +50,11 @@ tbody .button {
 .button {
     text-transform: uppercase;
 }
-
 .button-actions {
-    border: 0.1rem solid orange;
-    padding-left: 0.2rem;
-    padding-right: 0.2rem;
+    display: inline-block;
+    border: 0.1rem solid orange !important;
+    width: 1.5rem;
+    text-align: center;
 }
 
 .button-orange {
@@ -87,6 +83,10 @@ tbody .button {
 
 /*** Tablet ***/
 @media (min-width: 40.0rem) {
+    .right-aligned {
+        text-align: right !important;
+    }
+
     .products {
         grid-template-columns: repeat(3, auto);
     }
