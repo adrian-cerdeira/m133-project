@@ -29,9 +29,9 @@
                     <%= Number.parseFloat(product.specialOffer).toFixed(2) %> CHF
                 </td>
                 <td class="right-aligned">
-                    <a href="/cart/products/add/<%= product.id %>" class="button button-orange is-white">+</a>
+                    <a href="/cart/products/add/<%= product.id %>" class="button-orange is-white">+</a>
                     <%= product.amount %>
-                    <a href="/cart/products/delete/<%= product.id %>" class="button button-orange is-white">-</a>
+                    <a href="/cart/products/delete/<%= product.id %>" class="button-orange is-white">-</a>
                 </td>
                 <td class="right-aligned">
                     <%= Number.parseFloat(product.amount * product.specialOffer).toFixed(2) %> CHF
