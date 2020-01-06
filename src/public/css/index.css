@@ -27,8 +27,7 @@ h3 {
     padding: 3rem 0.5rem !important;
 }
 
-.table.is-fullwidth td,
-.table.is-fullwidth th {
+.table.is-fullwidth * {
     font-size: 0.8rem;
 }
 
@@ -101,8 +100,7 @@ tbody .button {
         height: 10rem;
     }
 
-    .table.is-fullwidth td,
-    .table.is-fullwidth th {
+    .table.is-fullwidth * {
         font-size: 1rem;
     }
 }
