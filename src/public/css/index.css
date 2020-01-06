@@ -46,10 +46,15 @@ tbody .button {
     padding-right: 0.5rem;
 }
 
+#add-product-form {
+    display: inline-block;
+}
+
 /*** Buttons ***/
 .button {
     text-transform: uppercase;
 }
+
 .button-actions {
     display: inline-block;
     border: 0.1rem solid orange !important;
