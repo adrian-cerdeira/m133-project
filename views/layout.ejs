@@ -25,9 +25,12 @@
         </div>
     </section>
 
-    <a href="/cart" class="button button-orange right-button">
-        <i class="icon-shopping-basket"></i> <%=  Number.parseFloat(total).toFixed(2) %> CHF
-    </a>
+    <nav class="pagination is-rounded right-button">
+        <a></a>
+        <a href="/cart" class="pagination-next button-orange">
+            <i class="icon-shopping-basket"></i> <%=  Number.parseFloat(total).toFixed(2) %> CHF
+        </a>
+    </nav>
 
     <!-- MAIN CONTENT HERE -->
     <%- defineContent('main-content') %>
