@@ -55,12 +55,12 @@ router.get('/products/:id', (req, res) => {
     );
 });
 
-// GET: cart.html - Produkt zu Warenkorb hinzufügen
-router.get('/cart/products/add/:id', (req, res) => {
+// GET: cart.html - Produkt von Warenkorb löschen
+router.get('/cart/products/:id', (req, res) => {
     const id = req.params.id;
     const selectedProduct = products.find(p => p.id.toString() === id);
 
-    req.session.cookie.cart.add(selectedProduct);
+    req.session.cookie.cart.remove(selectedProduct.id);
     req.session.cookie.cart.calculateProductAmount();
     req.session.cookie.cart.calculateTotal();
 
@@ -72,12 +72,36 @@ router.get('/cart/products/add/:id', (req, res) => {
     );
 });
 
-// GET: cart.html - Produkt von Warenkorb löschen
-router.get('/cart/products/delete/:id', (req, res) => {
+// POST: product.html - Produkt zu Warenkorb hinzufügen
+router.post('/products/:id', (req, res) => {
+    const id = req.params.id;
+    const nextProductId = (Number(id) + 1).toString();
+    const previousProductId = (Number(id) - 1).toString();
+
+    const selectedProduct = products.find(p => p.id.toString() === id);
+    const nextProduct = products.find(p => p.id.toString() === nextProductId);
+    const previousProduct = products.find(p => p.id.toString() === previousProductId);
+
+    req.session.cookie.cart.add(selectedProduct);
+    req.session.cookie.cart.calculateProductAmount();
+    req.session.cookie.cart.calculateTotal();
+
+    res.render('html/product',
+        {
+            product: selectedProduct,
+            nextProduct: nextProduct,
+            previousProduct: previousProduct,
+            total: req.session.cookie.cart.getTotal()
+        }
+    );
+});
+
+// POST: cart.html - Produkt zu Warenkorb hinzufügen
+router.post('/cart/products/:id', (req, res) => {
     const id = req.params.id;
     const selectedProduct = products.find(p => p.id.toString() === id);
 
-    req.session.cookie.cart.remove(selectedProduct.id);
+    req.session.cookie.cart.add(selectedProduct);
     req.session.cookie.cart.calculateProductAmount();
     req.session.cookie.cart.calculateTotal();
 

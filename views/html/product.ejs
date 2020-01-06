@@ -7,9 +7,11 @@
                 <%= product.description %>
                 <br />
                 <br />
-                <a href="/cart/products/add/<%= product.id %>" class="button button-orange">
-                    <i class="icon-basket"></i> Zum Warenkorb hinzufügen
-                </a>
+                <form action="" method="post">
+                    <button type="submit" class="button button-orange">
+                        <i class="icon-basket"></i> Zum Warenkorb hinzufügen
+                    </button>
+                </form>
             </p>
         </div>
         <div class="column">
