@@ -29,7 +29,7 @@
                     <%= product.name %>
                 </td>
                 <td class="right-aligned">
-                    <%= product.specialOffer %> CHF
+                    <%= Number.parseFloat(product.specialOffer).toFixed(2) %> CHF
                 </td>
                 <td class="right-aligned">
                     <%= product.amount %>
