@@ -38,12 +38,10 @@ router.get('/checkout', (req, res) => {
 // GET: product.html - Produkt - Übersicht
 router.get('/products/:id', (req, res) => {
     const id = req.params.id;
-    const nextProductId = (Number(id) + 1).toString();
-    const previousProductId = (Number(id) - 1).toString();
 
-    const selectedProduct = products.find(p => p.id.toString() === id);
-    const nextProduct = products.find(p => p.id.toString() === nextProductId);
-    const previousProduct = products.find(p => p.id.toString() === previousProductId);
+    const selectedProduct = loadProduct(id);
+    const nextProduct = loadNextProduct(id);
+    const previousProduct = loadPreviousProduct(id);
 
     res.render('html/product',
         {
@@ -56,9 +54,9 @@ router.get('/products/:id', (req, res) => {
 });
 
 // GET: cart.html - Produkt von Warenkorb löschen
-router.get('/cart/products/:id', (req, res) => {
+router.get('/cart/products/delete/:id', (req, res) => {
     const id = req.params.id;
-    const selectedProduct = products.find(p => p.id.toString() === id);
+    const selectedProduct = loadProduct(id);
 
     req.session.cookie.cart.remove(selectedProduct.id);
     req.session.cookie.cart.calculateProductAmount();
@@ -75,12 +73,10 @@ router.get('/cart/products/:id', (req, res) => {
 // POST: product.html - Produkt zu Warenkorb hinzufügen
 router.post('/products/:id', (req, res) => {
     const id = req.params.id;
-    const nextProductId = (Number(id) + 1).toString();
-    const previousProductId = (Number(id) - 1).toString();
 
-    const selectedProduct = products.find(p => p.id.toString() === id);
-    const nextProduct = products.find(p => p.id.toString() === nextProductId);
-    const previousProduct = products.find(p => p.id.toString() === previousProductId);
+    const selectedProduct = loadProduct(id);
+    const nextProduct = loadNextProduct(id);
+    const previousProduct = loadPreviousProduct(id);
 
     req.session.cookie.cart.add(selectedProduct);
     req.session.cookie.cart.calculateProductAmount();
@@ -99,7 +95,7 @@ router.post('/products/:id', (req, res) => {
 // POST: cart.html - Produkt zu Warenkorb hinzufügen
 router.post('/cart/products/:id', (req, res) => {
     const id = req.params.id;
-    const selectedProduct = products.find(p => p.id.toString() === id);
+    const selectedProduct = loadProduct(id);
 
     req.session.cookie.cart.add(selectedProduct);
     req.session.cookie.cart.calculateProductAmount();
@@ -145,5 +141,20 @@ router.post('/checkout',
         }
     }
 );
+
+// Helper Functions: Products
+function loadProduct(id: any) {
+    return products.find(p => p.id.toString() === id);
+}
+
+function loadPreviousProduct(id: string) {
+    const nextProductId = (Number(id) - 1).toString();
+    return products.find(p => p.id.toString() === nextProductId);
+}
+
+function loadNextProduct(id: string) {
+    const nextProductId = (Number(id) + 1).toString();
+    return products.find(p => p.id.toString() === nextProductId);
+}
 
 module.exports = router;

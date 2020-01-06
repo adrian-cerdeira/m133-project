@@ -33,9 +33,9 @@
                         <button type="submit" class="button-actions button-orange is-white">+</button>
                     </form>
                     <%= product.amount %>
-                    <form action="/cart/products/<%= product.id %>" method="get">
-                        <button type="submit" class="button-actions button-orange is-white">-</button>
-                    </form>
+                    <a href="/cart/products/delete/<%= product.id %>" class="button-actions button-orange is-white">
+                        -
+                    </a>
                 </td>
                 <td class="right-aligned">
                     <%= Number.parseFloat(product.amount * product.specialOffer).toFixed(2) %> CHF
