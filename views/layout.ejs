@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="/css/index.css">
     <link rel="stylesheet" type="text/css" href="/css/fontello.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <title>Dorfladen BBZW</title>
 </head>
@@ -28,7 +29,11 @@
     <nav class="pagination is-rounded right-button">
         <a></a>
         <a href="/cart" class="pagination-next button-orange">
-            <i class="icon-shopping-basket"></i> <%=  Number.parseFloat(total).toFixed(2) %> CHF
+            <i class="icon-shopping-basket"></i>
+            <%=  Number.parseFloat(total).toFixed(2) %> CHF
+            <%if (cartAmount != 0) { %>
+            <span class="w3-badge w3-blue"> <%= cartAmount %> </span>
+            <% } %>
         </a>
     </nav>
 

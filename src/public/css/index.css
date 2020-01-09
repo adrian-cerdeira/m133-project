@@ -19,6 +19,10 @@ h3 {
     color: red;
 }
 
+.w3-badge {
+    margin-left: 0.5rem;
+}
+
 .right-button {
     margin-top: 1rem !important;
 }

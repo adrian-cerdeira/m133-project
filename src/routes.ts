@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
     res.render('html/index',
         {
             products: products,
+            cartAmount: req.session.cookie.cart.size(),
             total: req.session.cookie.cart.getTotal()
         }
     );
@@ -20,6 +21,7 @@ router.get('/cart', (req, res) => {
 
     res.render('html/cart',
         {
+            cartAmount: req.session.cookie.cart.size(),
             products: req.session.cookie.cart.getUniqueProducts(),
             total: req.session.cookie.cart.getTotal()
         }
@@ -30,6 +32,7 @@ router.get('/cart', (req, res) => {
 router.get('/checkout', (req, res) => {
     res.render('html/checkout',
         {
+            cartAmount: req.session.cookie.cart.size(),
             total: req.session.cookie.cart.getTotal()
         }
     );
@@ -48,6 +51,7 @@ router.get('/products/:id', (req, res) => {
             product: selectedProduct,
             nextProduct: nextProduct,
             previousProduct: previousProduct,
+            cartAmount: req.session.cookie.cart.size(),
             total: req.session.cookie.cart.getTotal()
         }
     );
@@ -64,6 +68,7 @@ router.get('/cart/products/delete/:id', (req, res) => {
 
     res.render('html/cart',
         {
+            cartAmount: req.session.cookie.cart.size(),
             products: req.session.cookie.cart.getUniqueProducts(),
             total: req.session.cookie.cart.getTotal()
         }
@@ -85,6 +90,7 @@ router.post('/products/:id', (req, res) => {
             product: selectedProduct,
             nextProduct: nextProduct,
             previousProduct: previousProduct,
+            cartAmount: req.session.cookie.cart.size(),
             total: req.session.cookie.cart.getTotal()
         }
     );
@@ -99,6 +105,7 @@ router.post('/cart/products/:id', (req, res) => {
 
     res.render('html/cart',
         {
+            cartAmount: req.session.cookie.cart.size(),
             products: req.session.cookie.cart.getUniqueProducts(),
             total: req.session.cookie.cart.getTotal()
         }
@@ -120,12 +127,14 @@ router.post('/checkout',
             res.status(422);
             res.render('html/error',
                 {
+                    cartAmount: req.session.cookie.cart.size(),
                     total: req.session.cookie.cart.getTotal()
                 }
             );
         } else {
             res.render('html/submit',
                 {
+                    cartAmount: req.session.cookie.cart.size(),
                     products: req.session.cookie.cart.getUniqueProducts(),
                     total: req.session.cookie.cart.getTotal()
                 }
