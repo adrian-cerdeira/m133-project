@@ -31,7 +31,7 @@
 
         <div class="field is-grouped">
             <div class="control">
-                <button class="button button-orange">
+                <button id="checkout-button" class="button button-orange">
                     <i class="icon-basket"></i> Einkauf abschliessen
                 </button>
             </div>
@@ -41,6 +41,8 @@
 
 <script>
     const formInputs = document.querySelectorAll('input');
+    const button = document.getElementById('checkout-button');
+    button.disabled = true;
 
     formInputs.forEach(formInput => {
         formInput.addEventListener('input', (e) => {
@@ -48,8 +50,10 @@
             const inputName = formInput.name;
 
             if (isInputValid) {
+                button.disabled = false;
                 hiddenAlert(inputName);
             } else {
+                button.disabled = true;
                 showAlert(inputName);
             }
         });
