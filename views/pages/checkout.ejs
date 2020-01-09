@@ -40,6 +40,7 @@
 </section>
 
 <script>
+    // Fronted-Validation
     const formInputs = document.querySelectorAll('input');
     const button = document.getElementById('checkout-button');
     button.disabled = true;
@@ -59,6 +60,7 @@
         });
     });
 
+    // Helper Functions: Fronted-Validation
     function showAlert(name) {
         const id = `${name}-alert`;
         document.getElementById(id).style.display = 'block';
