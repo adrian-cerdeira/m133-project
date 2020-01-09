@@ -1,10 +1,13 @@
 <%- contentFor('main-content') %>
+
+<%if (total != 0) { %>
 <nav class="pagination is-rounded right-button">
     <a></a>
     <a href="/checkout" class="pagination-next button button-orange">
         <i class="icon-basket"></i> Checkout
     </a>
 </nav>
+<% } %>
 
 <section class="section container has-text-centered">
     <table class="table is-fullwidth">
