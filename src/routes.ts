@@ -21,8 +21,8 @@ router.get('/cart', (req, res) => {
 
     res.render('html/cart',
         {
-            cartAmount: req.session.cookie.cart.size(),
             products: req.session.cookie.cart.getUniqueProducts(),
+            cartAmount: req.session.cookie.cart.size(),
             total: req.session.cookie.cart.getTotal()
         }
     );
@@ -68,8 +68,8 @@ router.get('/cart/products/delete/:id', (req, res) => {
 
     res.render('html/cart',
         {
-            cartAmount: req.session.cookie.cart.size(),
             products: req.session.cookie.cart.getUniqueProducts(),
+            cartAmount: req.session.cookie.cart.size(),
             total: req.session.cookie.cart.getTotal()
         }
     );
@@ -105,8 +105,8 @@ router.post('/cart/products/:id', (req, res) => {
 
     res.render('html/cart',
         {
-            cartAmount: req.session.cookie.cart.size(),
             products: req.session.cookie.cart.getUniqueProducts(),
+            cartAmount: req.session.cookie.cart.size(),
             total: req.session.cookie.cart.getTotal()
         }
     );
@@ -134,8 +134,8 @@ router.post('/checkout',
         } else {
             res.render('html/submit',
                 {
-                    cartAmount: req.session.cookie.cart.size(),
                     products: req.session.cookie.cart.getUniqueProducts(),
+                    cartAmount: req.session.cookie.cart.size(),
                     total: req.session.cookie.cart.getTotal()
                 }
             );
