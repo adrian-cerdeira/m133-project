@@ -83,6 +83,12 @@ tbody .button {
     grid-template-columns: repeat(1, auto);
 }
 
+.products .card:hover {
+    border: 0.2rem solid orange;
+    border-radius: 0.5rem;
+    opacity: .6;
+}
+
 .normal-price {
     text-decoration: line-through;
     color: red;
