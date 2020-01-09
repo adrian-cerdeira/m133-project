@@ -31,7 +31,7 @@
 
         <div class="field is-grouped">
             <div class="control">
-                <button id="checkout-button" class="button button-orange">
+                <button id="checkout-button" class="button button-orange" disabled>
                     <i class="icon-basket"></i> Einkauf abschliessen
                 </button>
             </div>
@@ -43,7 +43,6 @@
     // Fronted-Validation
     const formInputs = document.querySelectorAll('input');
     const button = document.getElementById('checkout-button');
-    button.disabled = true;
 
     formInputs.forEach(formInput => {
         formInput.addEventListener('input', (e) => {
@@ -51,10 +50,10 @@
             const inputName = formInput.name;
 
             if (isInputValid) {
-                button.disabled = false;
+                toggleButtonDisabled();
                 hiddenAlert(inputName);
             } else {
-                button.disabled = true;
+                toggleButtonDisabled();
                 showAlert(inputName);
             }
         });
@@ -69,5 +68,9 @@
     function hiddenAlert(name) {
         const id = `${name}-alert`;
         document.getElementById(id).style.display = 'none';
+    }
+
+    function toggleButtonDisabled() {
+        button.disabled = !button.disabled;
     }
 </script>
