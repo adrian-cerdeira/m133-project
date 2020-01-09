@@ -78,9 +78,7 @@ router.post('/products/:id', (req, res) => {
     const nextProduct = loadNextProduct(id);
     const previousProduct = loadPreviousProduct(id);
 
-    req.session.cookie.cart.add(selectedProduct);
-    req.session.cookie.cart.calculateProductAmount();
-    req.session.cookie.cart.calculateTotal();
+    addProduct(req, selectedProduct);
 
     res.render('html/product',
         {
@@ -97,9 +95,7 @@ router.post('/cart/products/:id', (req, res) => {
     const id = req.params.id;
     const selectedProduct = loadProduct(id);
 
-    req.session.cookie.cart.add(selectedProduct);
-    req.session.cookie.cart.calculateProductAmount();
-    req.session.cookie.cart.calculateTotal();
+    addProduct(req, selectedProduct);
 
     res.render('html/cart',
         {
@@ -155,6 +151,12 @@ function loadPreviousProduct(id: string) {
 function loadNextProduct(id: string) {
     const nextProductId = (Number(id) + 1).toString();
     return products.find(p => p.id.toString() === nextProductId);
+}
+
+function addProduct(req: any, product: any) {
+    req.session.cookie.cart.add(product);
+    req.session.cookie.cart.calculateProductAmount();
+    req.session.cookie.cart.calculateTotal();
 }
 
 module.exports = router;
