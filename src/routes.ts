@@ -6,7 +6,7 @@ const router = express.Router();
 
 // GET: index.html - Übersicht
 router.get('/', (req, res) => {
-    res.render('html/index',
+    res.render('ejs/index',
         {
             products: products,
             cartAmount: req.session.cookie.cart.size(),
@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 router.get('/cart', (req, res) => {
     req.session.cookie.cart.calculateProductAmount();
 
-    res.render('html/cart',
+    res.render('ejs/cart',
         {
             products: req.session.cookie.cart.getUniqueProducts(),
             cartAmount: req.session.cookie.cart.size(),
@@ -30,7 +30,7 @@ router.get('/cart', (req, res) => {
 
 // GET: checkout.html - Einkauf abschliessen
 router.get('/checkout', (req, res) => {
-    res.render('html/checkout',
+    res.render('ejs/checkout',
         {
             cartAmount: req.session.cookie.cart.size(),
             total: req.session.cookie.cart.getTotal()
@@ -46,7 +46,7 @@ router.get('/products/:id', (req, res) => {
     const nextProduct = loadNextProduct(id);
     const previousProduct = loadPreviousProduct(id);
 
-    res.render('html/product',
+    res.render('ejs/product',
         {
             product: selectedProduct,
             nextProduct: nextProduct,
@@ -66,7 +66,7 @@ router.get('/cart/products/delete/:id', (req, res) => {
     req.session.cookie.cart.calculateProductAmount();
     req.session.cookie.cart.calculateTotal();
 
-    res.render('html/cart',
+    res.render('ejs/cart',
         {
             products: req.session.cookie.cart.getUniqueProducts(),
             cartAmount: req.session.cookie.cart.size(),
@@ -85,7 +85,7 @@ router.post('/products/:id', (req, res) => {
 
     addProduct(req, selectedProduct);
 
-    res.render('html/product',
+    res.render('ejs/product',
         {
             product: selectedProduct,
             nextProduct: nextProduct,
@@ -103,7 +103,7 @@ router.post('/cart/products/:id', (req, res) => {
 
     addProduct(req, selectedProduct);
 
-    res.render('html/cart',
+    res.render('ejs/cart',
         {
             products: req.session.cookie.cart.getUniqueProducts(),
             cartAmount: req.session.cookie.cart.size(),
@@ -125,14 +125,14 @@ router.post('/checkout',
 
         if (formInvalid) {
             res.status(422);
-            res.render('html/error',
+            res.render('ejs/error',
                 {
                     cartAmount: req.session.cookie.cart.size(),
                     total: req.session.cookie.cart.getTotal()
                 }
             );
         } else {
-            res.render('html/submit',
+            res.render('ejs/submit',
                 {
                     products: req.session.cookie.cart.getUniqueProducts(),
                     cartAmount: req.session.cookie.cart.size(),
