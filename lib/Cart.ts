@@ -2,9 +2,7 @@ export class Cart {
     public products = [];
     private total = 0;
 
-    constructor() {
-        this.products = new Array();
-    }
+    constructor() {}
 
     public size(): Number {
         return this.products.length;
