@@ -2,13 +2,14 @@ export class Cart {
     public products = [];
     private total = 0;
 
-    constructor() {}
+    constructor() { }
 
     public size(): Number {
         return this.products.length;
     }
 
     public add(product): void {
+        product.amount++;
         this.products.push(product);
     }
 
@@ -24,23 +25,14 @@ export class Cart {
         return this.total;
     }
 
-    public calculateProductAmount(): void {
-        this.products.forEach(p => {
-            p.amount = this.getProductAmount(p.id);
-        });
-    }
-
-    public getProductAmount(id): number {
-        const sameProduct = this.products.filter(p => p.id === id);
-        return sameProduct.length;
-    }
-
     public getUniqueProducts() {
         return [...new Set(this.products)];
     }
 
     public remove(id): void {
+        const product = this.products.find(p => p.id === id);
         const productIndex = this.products.findIndex(p => p.id === id);
+        product.amount--;
         this.products.splice(productIndex, 1);
     }
 }

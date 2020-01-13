@@ -17,8 +17,6 @@ router.get('/', (req, res) => {
 
 // GET: cart.html - Warenkorb
 router.get('/cart', (req, res) => {
-    req.session.cookie.cart.calculateProductAmount();
-
     res.render('pages/cart',
         {
             products: req.session.cookie.cart.getUniqueProducts(),
@@ -63,7 +61,6 @@ router.get('/cart/products/delete/:id', (req, res) => {
     const selectedProduct = loadProduct(id);
 
     req.session.cookie.cart.remove(selectedProduct.id);
-    req.session.cookie.cart.calculateProductAmount();
     req.session.cookie.cart.calculateTotal();
 
     res.render('pages/cart',
@@ -164,7 +161,6 @@ function loadNextProduct(id: string) {
 
 function addProduct(req: any, product: any) {
     req.session.cookie.cart.add(product);
-    req.session.cookie.cart.calculateProductAmount();
     req.session.cookie.cart.calculateTotal();
 }
 
