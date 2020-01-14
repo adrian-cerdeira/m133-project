@@ -1,5 +1,5 @@
 export class Cart {
-    public products = [];
+    private products = [];
     private total = 0;
 
     constructor() { }
@@ -9,30 +9,57 @@ export class Cart {
     }
 
     public add(product): void {
-        product.amount++;
-        this.products.push(product);
-    }
+        const existProduct = this.products.find(p => p.id === product.id);
 
-    public calculateTotal(): void {
-        let sum = 0;
-        this.products.forEach(p => {
-            sum += p.specialOffer;
-        });
-        this.total = Number(sum.toFixed(2));
+        product.amount++;
+
+        if (!existProduct) {
+            this.products.push(product);
+        }
+
+        this.calculateTotal();
     }
 
     public getTotal(): number {
         return this.total;
     }
 
-    public getUniqueProducts() {
-        return [...new Set(this.products)];
+    public getProductsAmount(): number {
+        let sum = 0;
+        this.products.forEach(p => {
+            sum += p.amount;
+        });
+        return Number(sum.toFixed(2));
+    }
+
+    public getProducts() {
+        return this.products;
+    }
+
+    public reset(): void {
+        this.products = [];
+        this.calculateTotal();
     }
 
     public remove(id): void {
         const product = this.products.find(p => p.id === id);
-        const productIndex = this.products.findIndex(p => p.id === id);
+
         product.amount--;
-        this.products.splice(productIndex, 1);
+
+        const isLastProduct = product.amount === 0;
+        if (isLastProduct) {
+            const productIndex = this.products.findIndex(p => p.id === id);
+            this.products.splice(productIndex, 1);
+        }
+
+        this.calculateTotal();
+    }
+
+    private calculateTotal(): void {
+        let sum = 0;
+        this.products.forEach(p => {
+            sum += p.amount * p.specialOffer;
+        });
+        this.total = Number(sum.toFixed(2));
     }
 }

@@ -26,28 +26,28 @@ describe("Webshop", () => {
             expect(result).to.be.equal(1);
         });
 
-        it("can calculate total", () => {
-            const cart = new Cart();
-            cart.add(prodcuts[0]);
-            cart.add(prodcuts[1]);
-            cart.calculateTotal();
-            const result = cart.getTotal();
-            expect(result).to.be.equal(6.25);
-        });
-
         it("can get total", () => {
             const cart = new Cart();
             const result = cart.getTotal();
             expect(result).to.be.equal(0);
         });
 
-        it("can get unique products", () => {
+        it("can get products amount", () => {
             const cart = new Cart();
-            cart.add((prodcuts[1]));
-            cart.add((prodcuts[1]));
-            cart.add((prodcuts[1]));
-            const result = cart.getUniqueProducts().length;
-            expect(result).to.be.equal(1);
+            cart.add(prodcuts[1]);
+            cart.add(prodcuts[2]);
+            const result = cart.getProductsAmount();
+            expect(result).to.be.equal(2);
+        });
+
+        it("can reset", () => {
+            const cart = new Cart();
+            cart.add(prodcuts[0]);
+            cart.add(prodcuts[1]);
+            cart.add(prodcuts[2]);
+            cart.reset();
+            const result = cart.size();
+            expect(result).to.be.equal(0);
         });
     })
 });

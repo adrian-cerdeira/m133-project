@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     res.render('pages/index',
         {
             products: products,
-            cartAmount: req.session.cookie.cart.size(),
+            cartAmount: req.session.cookie.cart.getProductsAmount(),
             total: req.session.cookie.cart.getTotal()
         }
     );
@@ -19,8 +19,8 @@ router.get('/', (req, res) => {
 router.get('/cart', (req, res) => {
     res.render('pages/cart',
         {
-            products: req.session.cookie.cart.getUniqueProducts(),
-            cartAmount: req.session.cookie.cart.size(),
+            products: req.session.cookie.cart.getProducts(),
+            cartAmount: req.session.cookie.cart.getProductsAmount(),
             total: req.session.cookie.cart.getTotal()
         }
     );
@@ -30,7 +30,7 @@ router.get('/cart', (req, res) => {
 router.get('/checkout', (req, res) => {
     res.render('pages/checkout',
         {
-            cartAmount: req.session.cookie.cart.size(),
+            cartAmount: req.session.cookie.cart.getProductsAmount(),
             total: req.session.cookie.cart.getTotal()
         }
     );
@@ -49,7 +49,7 @@ router.get('/products/:id', (req, res) => {
             product: selectedProduct,
             nextProduct: nextProduct,
             previousProduct: previousProduct,
-            cartAmount: req.session.cookie.cart.size(),
+            cartAmount: req.session.cookie.cart.getProductsAmount(),
             total: req.session.cookie.cart.getTotal()
         }
     );
@@ -61,12 +61,11 @@ router.get('/cart/products/delete/:id', (req, res) => {
     const selectedProduct = loadProduct(id);
 
     req.session.cookie.cart.remove(selectedProduct.id);
-    req.session.cookie.cart.calculateTotal();
 
     res.render('pages/cart',
         {
-            products: req.session.cookie.cart.getUniqueProducts(),
-            cartAmount: req.session.cookie.cart.size(),
+            products: req.session.cookie.cart.getProducts(),
+            cartAmount: req.session.cookie.cart.getProductsAmount(),
             total: req.session.cookie.cart.getTotal()
         }
     );
@@ -87,7 +86,7 @@ router.post('/products/:id', (req, res) => {
             product: selectedProduct,
             nextProduct: nextProduct,
             previousProduct: previousProduct,
-            cartAmount: req.session.cookie.cart.size(),
+            cartAmount: req.session.cookie.cart.getProductsAmount(),
             total: req.session.cookie.cart.getTotal()
         }
     );
@@ -102,8 +101,8 @@ router.post('/cart/products/:id', (req, res) => {
 
     res.render('pages/cart',
         {
-            products: req.session.cookie.cart.getUniqueProducts(),
-            cartAmount: req.session.cookie.cart.size(),
+            products: req.session.cookie.cart.getProducts(),
+            cartAmount: req.session.cookie.cart.getProductsAmount(),
             total: req.session.cookie.cart.getTotal()
         }
     );
@@ -124,22 +123,20 @@ router.post('/checkout',
             res.status(422);
             res.render('pages/error',
                 {
-                    cartAmount: req.session.cookie.cart.size(),
+                    cartAmount: req.session.cookie.cart.getProductsAmount(),
                     total: req.session.cookie.cart.getTotal()
                 }
             );
         } else {
             res.render('pages/submit',
                 {
-                    products: req.session.cookie.cart.getUniqueProducts(),
-                    cartAmount: req.session.cookie.cart.size(),
+                    products: req.session.cookie.cart.getProducts(),
+                    cartAmount: req.session.cookie.cart.getProductsAmount(),
                     total: req.session.cookie.cart.getTotal()
                 }
             );
 
-            // Werte zurücksetzen 
-            req.session.cookie.cart.products = [];
-            req.session.cookie.cart.calculateTotal();
+            req.session.cookie.cart.reset();
         }
     }
 );
@@ -161,7 +158,6 @@ function loadNextProduct(id: string) {
 
 function addProduct(req: any, product: any) {
     req.session.cookie.cart.add(product);
-    req.session.cookie.cart.calculateTotal();
 }
 
 module.exports = router;
