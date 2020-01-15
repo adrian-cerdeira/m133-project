@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import { Cart } from '../lib/Cart';
+import { Helper } from '../lib/Helper';
 import * as prodcuts from '../src/products.json';
 
 describe("Webshop", () => {
@@ -51,5 +52,30 @@ describe("Webshop", () => {
             const result = cart.size();
             expect(result).to.be.equal(0);
         });
-    })
+    });
+
+    describe("Helper", () => {
+        it("can get product", () => {
+            const helper = new Helper();
+            const productId = prodcuts[0].id;
+            const result = helper.loadProduct(productId.toString(), prodcuts).id;
+            expect(result).to.be.equal(productId);
+        });
+
+        it("can get next product", () => {
+            const helper = new Helper();
+            const productId = prodcuts[0].id;
+            const nextProductId = prodcuts[1].id;
+            const result = helper.loadNextProduct(productId.toString(), prodcuts).id;
+            expect(result).to.be.equal(nextProductId);
+        });
+
+        it("can get previous product", () => {
+            const helper = new Helper();
+            const productId = prodcuts[1].id;
+            const previousProductId = prodcuts[0].id;
+            const result = helper.loadPreviousProduct(productId.toString(), prodcuts).id;
+            expect(result).to.be.equal(previousProductId);
+        });
+    });
 });

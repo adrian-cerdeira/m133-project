@@ -1,7 +1,9 @@
 import * as express from 'express';
 import * as products from './products.json';
 import { check, validationResult } from 'express-validator';
+import { Helper } from '../lib/Helper';
 
+const helper = new Helper();
 const router = express.Router();
 
 // GET: index.html - Übersicht
@@ -39,9 +41,9 @@ router.get('/checkout', (req, res) => {
 // GET: product.html - Produkt - Übersicht
 router.get('/products/:id', (req, res) => {
     const id = req.params.id;
-    const selectedProduct = loadProduct(id);
-    const nextProduct = loadNextProduct(id);
-    const previousProduct = loadPreviousProduct(id);
+    const selectedProduct = helper.loadProduct(id, products);
+    const nextProduct = helper.loadNextProduct(id, products);
+    const previousProduct = helper.loadPreviousProduct(id, products);
 
     res.render('pages/product',
         {
@@ -57,7 +59,7 @@ router.get('/products/:id', (req, res) => {
 // GET: cart.html - Produkt von Warenkorb löschen
 router.get('/cart/products/delete/:id', (req, res) => {
     const id = req.params.id;
-    const selectedProduct = loadProduct(id);
+    const selectedProduct = helper.loadProduct(id, products);
 
     req.session.cookie.cart.remove(selectedProduct.id);
 
@@ -67,7 +69,7 @@ router.get('/cart/products/delete/:id', (req, res) => {
 // POST: product.html - Produkt zu Warenkorb hinzufügen
 router.post('/products/:id', (req, res) => {
     const id = req.params.id;
-    const selectedProduct = loadProduct(id);
+    const selectedProduct = helper.loadProduct(id, products);
 
     addProduct(req, selectedProduct);
 
@@ -77,7 +79,7 @@ router.post('/products/:id', (req, res) => {
 // POST: cart.html - Produkt zu Warenkorb hinzufügen
 router.post('/cart/products/add/:id', (req, res) => {
     const id = req.params.id;
-    const selectedProduct = loadProduct(id);
+    const selectedProduct = helper.loadProduct(id, products);
 
     addProduct(req, selectedProduct);
 
@@ -116,21 +118,6 @@ router.post('/checkout',
         }
     }
 );
-
-// Helper Functions: Products
-function loadProduct(id: any) {
-    return products.find(p => p.id.toString() === id);
-}
-
-function loadPreviousProduct(id: string) {
-    const nextProductId = (Number(id) - 1).toString();
-    return products.find(p => p.id.toString() === nextProductId);
-}
-
-function loadNextProduct(id: string) {
-    const nextProductId = (Number(id) + 1).toString();
-    return products.find(p => p.id.toString() === nextProductId);
-}
 
 function addProduct(req: any, product: any) {
     req.session.cookie.cart.add(product);
