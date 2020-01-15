@@ -62,13 +62,7 @@ router.get('/cart/products/delete/:id', (req, res) => {
 
     req.session.cookie.cart.remove(selectedProduct.id);
 
-    res.render('pages/cart',
-        {
-            products: req.session.cookie.cart.getProducts(),
-            cartAmount: req.session.cookie.cart.getProductsAmount(),
-            total: req.session.cookie.cart.getTotal()
-        }
-    );
+    res.redirect('/cart');
 });
 
 // POST: product.html - Produkt zu Warenkorb hinzufügen
@@ -76,20 +70,10 @@ router.post('/products/:id', (req, res) => {
     const id = req.params.id;
 
     const selectedProduct = loadProduct(id);
-    const nextProduct = loadNextProduct(id);
-    const previousProduct = loadPreviousProduct(id);
 
     addProduct(req, selectedProduct);
 
-    res.render('pages/product',
-        {
-            product: selectedProduct,
-            nextProduct: nextProduct,
-            previousProduct: previousProduct,
-            cartAmount: req.session.cookie.cart.getProductsAmount(),
-            total: req.session.cookie.cart.getTotal()
-        }
-    );
+    res.redirect(`/products/${id}`);
 });
 
 // POST: cart.html - Produkt zu Warenkorb hinzufügen
@@ -99,13 +83,7 @@ router.post('/cart/products/:id', (req, res) => {
 
     addProduct(req, selectedProduct);
 
-    res.render('pages/cart',
-        {
-            products: req.session.cookie.cart.getProducts(),
-            cartAmount: req.session.cookie.cart.getProductsAmount(),
-            total: req.session.cookie.cart.getTotal()
-        }
-    );
+    res.redirect('/cart');
 });
 
 // POST: checkout.html - Einkauf abschliessen
