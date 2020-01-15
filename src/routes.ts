@@ -39,7 +39,6 @@ router.get('/checkout', (req, res) => {
 // GET: product.html - Produkt - Übersicht
 router.get('/products/:id', (req, res) => {
     const id = req.params.id;
-
     const selectedProduct = loadProduct(id);
     const nextProduct = loadNextProduct(id);
     const previousProduct = loadPreviousProduct(id);
@@ -68,7 +67,6 @@ router.get('/cart/products/delete/:id', (req, res) => {
 // POST: product.html - Produkt zu Warenkorb hinzufügen
 router.post('/products/:id', (req, res) => {
     const id = req.params.id;
-
     const selectedProduct = loadProduct(id);
 
     addProduct(req, selectedProduct);
