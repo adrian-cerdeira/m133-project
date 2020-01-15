@@ -28,8 +28,10 @@ describe("Webshop", () => {
 
         it("can get total", () => {
             const cart = new Cart();
+            cart.add(prodcuts[3]);
+            cart.add(prodcuts[4]);
             const result = cart.getTotal();
-            expect(result).to.be.equal(0);
+            expect(result).to.be.equal(7.2);
         });
 
         it("can get products amount", () => {
