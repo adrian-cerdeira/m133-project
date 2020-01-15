@@ -41,7 +41,7 @@
                     <%= Number.parseFloat(product.specialOffer).toFixed(2) %> CHF
                 </td>
                 <td class="right-aligned">
-                    <form id="add-product-form" action="/cart/products/<%= product.id %>" method="post">
+                    <form id="add-product-form" action="/cart/products/add/<%= product.id %>" method="post">
                         <button type="submit" class="button-actions button-orange is-white">+</button>
                     </form>
                     <%= product.amount %>

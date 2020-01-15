@@ -75,7 +75,7 @@ router.post('/products/:id', (req, res) => {
 });
 
 // POST: cart.html - Produkt zu Warenkorb hinzufügen
-router.post('/cart/products/:id', (req, res) => {
+router.post('/cart/products/add/:id', (req, res) => {
     const id = req.params.id;
     const selectedProduct = loadProduct(id);
 
