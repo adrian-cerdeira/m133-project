@@ -37,8 +37,11 @@ export class Cart {
     }
 
     public reset(): void {
+        this.products.forEach(p => {
+            p.amount = 0;
+        });
         this.products = [];
-        this.calculateTotal();
+        this.total = 0;
     }
 
     public remove(id): void {
