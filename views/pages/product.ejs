@@ -28,9 +28,11 @@
                 <form action="" method="post">
                     <button type="submit" class="button button-orange">
                         <i class="icon-basket"></i> Zum Warenkorb hinzufügen
+                        <%if (product.amount > 0) { %>
                         <span class="w3-badge w3-blue">
                             <%= product.amount%>
                         </span>
+                        <% } %>
                     </button>
                 </form>
             </p>
