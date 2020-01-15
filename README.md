@@ -3,6 +3,7 @@
 Abschlussprojekt des Moduls 133
 
 - [Bulma als CSS-Framework](https://github.com/jgthms/bulma)
+- [Badges mit W3Schools CSS](https://www.w3schools.com/w3css/4/w3.css)
 - Icons mit [Fontello](http://fontello.com/)
 - [Express als Server](https://github.com/expressjs/express)
 - [Mocha für Testing](https://github.com/mochajs/mocha) mit [chai](https://github.com/chaijs/chai)
