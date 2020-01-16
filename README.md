@@ -21,7 +21,7 @@ Abschlussprojekt des Moduls 133
 
 ## Start
 
-    npm start;
+    npm start; # Running on localhost:8080
 
 ## Test
 
